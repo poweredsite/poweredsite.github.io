@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>replit</title>
+  <style>
+    body {
+      background-color: #171717;
+      color: #D6D600;
+      font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    hr {
+      margin: 0;
+      border: 2px solid #D6D600;
+    }
+
+    ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      background-color: #333;
+    }
+
+    li {
+      float: left;
+    }
+
+    li a {
+      display: block;
+      color: white;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+    }
+
+    li a:hover:not(.active) {
+      background-color: #171717;
+    }
+
+    .active {
+      background-color: #D6D600;
+    }
+
+    .log {
+      border: 2px solid #333;
+      border-radius: 2;
+      margin: 20%;
+    }
+
+    .log:hover {
+      background-color: #171717
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    input[type=text],
+    select,
+    textarea {
+      width: 100%;
+      padding: 6px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      resize: vertical;
+    }
+
+    label {
+      padding: 6px 6px 6px 0;
+      display: inline-block;
+    }
+
+    input[type=submit] {
+      background-color: #4CAF50;
+      color: white;
+      padding: 6px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      float: right;
+    }
+
+    button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 6px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      float: right;
+    }
+
+    input[type=submit]:hover {
+      background-color: #45a049;
+    }
+    
+    button:hover {
+      background-color: #45a049;
+    }
+
+    .container {
+      border-radius: 5px;
+      background-color: #f2f2f2;
+      padding: 6px;
+    }
+
+    .col-25 {
+      float: left;
+      width: 25%;
+      margin-top: 6px;
+    }
+
+    .col-75 {
+      float: left;
+      width: 75%;
+      margin-top: 6px;
+    }
+
+    /* Clear floats after the columns */
+    .row:after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+
+    .inp {
+      border: none;
+      border-radius: 4px;
+      background-color: #171717;
+      color: #D6D600;
+    }
+
+    /* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+    @media screen {
+
+      .col-25,
+      .col-75,
+      button {
+        width: 100%;
+        margin-top: 10px;
+      }
+    }
+  </style>
+
+  <script>
+    async function login() {
+      let response = await fetch(`https://27c58149-6206-40b3-948e-f9b297b7a285-00-3ve64c3nleqmv.pike.replit.dev/login?username=${document.getElementById("username").value}&password=${document.getElementById("pass").value}`);
+      if (response.ok) {
+        let session = await response.text();
+        document.sessfmt = `sender=${document.getElementById("username").value}&session=${session}`
+      }
+    }
+  </script>
+
+</head>
+
+<body>
+  <ul>
+    <li><a href="/index.html">PoweredX</a></li>
+    <li><a href="/news.html">News</a></li>
+    <li><a href="/contact.html">Contacts</a></li>
+    <li><a href="/about.html">About us</a></li>
+    <li><a class="active" href="/login.html">Account</a></li>
+  </ul>
+  <hr />
+  <h1>Login<a href="/reg.html" style="color: #aaa; text-decoration: none;">(Register)</a></h1>
+  <hr />
+  <div style="padding: 0 15px 0 15px;">
+    <form>
+      <div class="row">
+        <div class="col-25">
+          <label>UserName</label>
+        </div>
+        <div class="col-75">
+          <input type="text" class="inp" id="username" placeholder="Your last name..">
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-25">
+          <label>Password</label>
+        </div>
+        <div class="col-75">
+          <input type="text" class="inp" id="pass" placeholder="Your last name..">
+        </div>
+      </div>
+      
+      <div class="row">
+        <button onclick="login()">Login</button>
+      </div>
+      <div id="errors"></div>
+    </form>
+  </div>
+
+  
+
+</body>
+
+</html>
