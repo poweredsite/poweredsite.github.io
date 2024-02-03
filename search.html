@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
-  <title>Registration</title>
+  <title>Search</title>
   <link rel="icon" href="https://gc-temp.supafiles.com/803774/image_8858021_18044996.png" type="image/x-icon">
   <link rel="stylesheet" href="style.css">
   <script src="script.js"></script>
@@ -17,22 +17,13 @@
     <li><a href="/news.html">News</a></li>
     <li><a href="/contact.html">Contacts</a></li>
     <li><a href="/about.html">About us</a></li>
-    <li><a class="active" href="/account.html">Account</a></li>
+    <li><a class="active" href="/login.html">Account</a></li>
   </ul>
   <hr />
-  <h1>Register<a href="/login.html" style="color: #aaa; text-decoration: none;">(Login)</a></h1>
+  <h1>Login<a href="/reg.html" style="color: #aaa; text-decoration: none;">(Register)</a></h1>
   <hr />
   <div style="padding: 0 15px 0 15px; width:100%">
-    <div style="max-width: 400px;margin:auto;">
-      <div class="row">
-        <div class="col-25">
-          <label>Name</label>
-        </div>
-        <div class="col-75">
-          <input type="text" class="inp" id="name" placeholder="Your last name..">
-        </div>
-      </div>
-      
+    <form style="max-width: 400px;margin:auto;">
       <div class="row">
         <div class="col-25">
           <label>UserName</label>
@@ -52,11 +43,12 @@
       </div>
 
       <div class="row">
-        <button onclick="reg()">Register</button>
+        <button onclick="login()">Login</button>
       </div>
-      <div id="comm"></div>
-    </div>
+      <div id="errors"></div>
+    </form>
   </div>
+
 
 
 </body>
