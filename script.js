@@ -42,12 +42,25 @@ async function checkacc() {
   try {
     let response = await fetch("https://27c58149-6206-40b3-948e-f9b297b7a285-00-3ve64c3nleqmv.pike.replit.dev/session?" + localStorage.getItem("sessfmt"))
     console.log(response.status)
+    if (response.ok) {
+      
+    }
     if (response.status == 401) {
       window.location.href = "/login.html"
     }
   }
   catch {
     window.location.href = "/unav.html"
+  }
+}
+
+async function checkserv() {
+  try {
+    let response = await fetch("https://27c58149-6206-40b3-948e-f9b297b7a285-00-3ve64c3nleqmv.pike.replit.dev/")
+    window.location.href = "/account.html"
+  }
+  catch {
+    checkserv()
   }
 }
 
