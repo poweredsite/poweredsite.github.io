@@ -60,7 +60,7 @@ async function checkserv() {
     window.location.href = "/account.html"
   }
   catch {
-    checkserv()
+    await checkserv()
   }
 }
 
