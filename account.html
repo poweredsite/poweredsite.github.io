@@ -13,20 +13,57 @@
 
 <body>
   <script>checkacc()</script>
-  <ul>
-    <li><a class="active" href="/index.html">PoweredX</a></li>
-    <li><a href="/news.html">News</a></li>
-    <li><a href="/contact.html">Contacts</a></li>
-    <li><a href="/about.html">About us</a></li>
-    <li><a href="/account.html">Account</a></li>
-  </ul>
-  <hr />
-  <h1>Manage Account</h1>
-  <hr />
-  <div style="padding-left: 15px;">
-    <p>PoweredX is a company that specializes in providing high-quality products and services to businesses</p>
+  <div style="background-color: #171717;">
+    <ul>
+      <li><a href="/index.html">PoweredX</a></li>
+      <li><a href="/search.html">Search</a></li>
+      <li><a href="/contact.html">Contacts</a></li>
+      <li><a href="/about.html">About us</a></li>
+      <li><a class="active" href="/account.html">Account</a></li>
+    </ul>
+    <hr />
+    <h1 class="head">Manage Account</h1>
+    <hr />
   </div>
-  
+  <div class="sidenav">
+    <a href="#profile">Profile</a>
+    <a href="#posts">My Posts</a>
+    <a href="#crpost">Create Post</a>
+  </div>
+
+  <div class="main" style="padding: 0 15px 0 15px; width:100%">
+    <div id="profile" style="max-width: 400px">
+      <h2>Profile</h2>
+      <div class="row">
+        <div class="col-25">
+          <label>Name: <label id="namelab"></label></label><br />
+          <label>UserName: <label id="usnmlab"></label></label><br />
+          <label>ID: <label id="idlab"></label></label><br />
+          <label>Verify Status: <label id="verifylab"></label></label><br />
+
+        </div>
+      </div>
+      <script>user(localStorage.getItem("username"))</script>
+    </div>
+    <hr />
+    <div id="crpost" style="max-width: 400px; margin: auto;">
+      <label>Name</label>
+      <input type="text" class="inp" id="name" placeholder="Post name..">
+
+      <label>UserName</label>
+      <input type="text" class="inp" id="username" placeholder="Post UserName..">
+
+      <label>Text</label>
+      <textarea oninput="prev()" class="inp" style="border: solid 1px #fff" id="text" style="height:200px"></textarea>
+
+      <button type="button" class="green" onclick="newpost()">Send</button>
+
+      <div id="comm"></div>
+
+      <label>Preview: </label>
+      <div id="prev"></div>
+    </div>
+
 
 </body>
 

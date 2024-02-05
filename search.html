@@ -14,39 +14,19 @@
 <body>
   <ul>
     <li><a href="/index.html">PoweredX</a></li>
-    <li><a href="/news.html">News</a></li>
+    <li><a class="active" href="/search.html">Search</a></li>
     <li><a href="/contact.html">Contacts</a></li>
     <li><a href="/about.html">About us</a></li>
-    <li><a class="active" href="/login.html">Account</a></li>
+    <li><a href="/login.html">Account</a></li>
   </ul>
   <hr />
-  <h1>Login<a href="/reg.html" style="color: #aaa; text-decoration: none;">(Register)</a></h1>
+  <h1 class="head">Search</h1>
   <hr />
-  <div style="padding: 0 15px 0 15px; width:100%">
-    <form style="max-width: 400px;margin:auto;">
-      <div class="row">
-        <div class="col-25">
-          <label>UserName</label>
-        </div>
-        <div class="col-75">
-          <input type="text" class="inp" id="username" placeholder="Your last name..">
-        </div>
-      </div>
-
-      <div class="row">
-        <div class="col-25">
-          <label>Password</label>
-        </div>
-        <div class="col-75">
-          <input type="text" class="inp" id="pass" placeholder="Your last name..">
-        </div>
-      </div>
-
-      <div class="row">
-        <button onclick="login()">Login</button>
-      </div>
-      <div id="errors"></div>
-    </form>
+  <div class="sidenav">
+    <div style="display: flex;"><input type="text" class="inp" placeholder="Search"/> <button class="green" style="margin-top:0; margin-left: 4px; width: 40px;">Go</button></div>
+  </div>
+  <div class="main">
+    
   </div>
 
 
