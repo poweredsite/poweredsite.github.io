@@ -31,7 +31,7 @@ async function checkserv(e = false) {
         window.location.href = "/unav.html";
       }
     }
-    if (!e) {
+    else if (!e) {
       window.location.href = "/account.html";
     }
     else {
