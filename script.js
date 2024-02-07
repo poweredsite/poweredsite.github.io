@@ -20,49 +20,50 @@ async function newpost() {
   }
 }
 
+async function checkserv(e = false) {
+  try {
+    let response = await fetch("https://27c58149-6206-40b3-948e-f9b297b7a285-00-3ve64c3nleqmv.pike.replit.dev/server");
+    if (!response.ok) {
+      if (!e) {
+        await checkserv(e);
+      }
+      else {
+        window.location.href = "/unav.html";
+      }
+    }
+    if (!e) {
+      window.location.href = "/account.html";
+    }
+    else {
+      return true;
+    }
+  }
+  catch {
+    if (!e) {
+      await checkserv(e);
+    }
+    else {
+      window.location.href = "/unav.html";
+    }
+  }
+}
+
+
 async function user(user) {
-  try {
-    let response = await fetch(`https://27c58149-6206-40b3-948e-f9b297b7a285-00-3ve64c3nleqmv.pike.replit.dev/user?username=${user}&` + localStorage.getItem("sessfmt"))
-    let resp = await response.text()
-    resp = JSON.parse(resp)
-    document.getElementById("usnmlab").innerHTML = resp.UserName
-    document.getElementById("namelab").innerHTML = resp.Name
-    document.getElementById("idlab").innerHTML = resp.Id
-    document.getElementById("verifylab").innerHTML = resp.Verify
-    if (response.status == 401) {
-      window.location.href = "/login.html"
-    }
-  }
-  catch {
-    window.location.href = "/unav.html"
+  await checkserv(true);
+  let response = await fetch(`https://27c58149-6206-40b3-948e-f9b297b7a285-00-3ve64c3nleqmv.pike.replit.dev/user?username=${user}&` + localStorage.getItem("sessfmt"));
+  let resp = await response.text();
+  resp = JSON.parse(resp);
+  document.getElementById("usnmlab").innerHTML = resp.UserName;
+  document.getElementById("namelab").innerHTML = resp.Name;
+  document.getElementById("idlab").innerHTML = resp.Id;
+  document.getElementById("verifylab").innerHTML = resp.Verify;
+  if (response.status == 401) {
+    window.location.href = "/login.html";
   }
 }
 
-async function checkacc() {
-  try {
-    let response = await fetch("https://27c58149-6206-40b3-948e-f9b297b7a285-00-3ve64c3nleqmv.pike.replit.dev/session?" + localStorage.getItem("sessfmt"))
-    console.log(response.status)
-    if (response.ok) {
-      
-    }
-    if (response.status == 401) {
-      window.location.href = "/login.html"
-    }
-  }
-  catch {
-    window.location.href = "/unav.html"
-  }
-}
 
-async function checkserv() {
-  try {
-    let response = await fetch("https://27c58149-6206-40b3-948e-f9b297b7a285-00-3ve64c3nleqmv.pike.replit.dev/")
-    window.location.href = "/account.html"
-  }
-  catch {
-    await checkserv()
-  }
-}
 
 async function reg() {
   let response = await fetch(`https://27c58149-6206-40b3-948e-f9b297b7a285-00-3ve64c3nleqmv.pike.replit.dev/newuser?username=${document.getElementById("username").value}&password=${document.getElementById("pass").value}&name=${document.getElementById("name").value}`);

@@ -150,15 +150,15 @@ button:hover {
 
 .sidenav {
   width: 160px;
-  height: 100%;
-  padding-top: 160px;
-  left: 0;
-  top: 0;
-  background-color: #101010;
+  position: fixed;
+  z-index: 1;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  background: #111;
+  border-right: solid 4px #D6D600;
   overflow-x: hidden;
-  border-right: 4px solid #D6D600;
-  position:fixed;
-
+  padding: 8px 0;
 }
 
 .sidenav a {
@@ -170,25 +170,24 @@ button:hover {
 }
 
 .sidenav a:hover {
-  color: #f1f1f1;
+  color: #D6D600;
 }
 
 .main {
-  z-index: -1000;
-  margin-left: 160px;
-  /* Same as the width of the sidenav */
+  z-index: -2;
+  margin-left: 170px;
+  /* Same width as the sidebar + left position in px */
   font-size: 28px;
   /* Increased text to enable scrolling */
   padding: 0px 10px;
 }
 
-/* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
-@media screen {
+@media screen and (max-height: 450px) {
+  .sidenav {
+    padding-top: 15px;
+  }
 
-  .col-25,
-  .col-75,
-  button {
-    width: 100%;
-    margin-top: 10px;
+  .sidenav a {
+    font-size: 18px;
   }
 }
